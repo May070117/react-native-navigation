@@ -24,6 +24,14 @@ class LayoutsScreen extends React.Component {
     };
   }
 
+  componentDidMount() {
+    setTimeout(() => {
+      Navigation.setRoot({root: {
+        component: {name: 'Layouts'}
+      }})
+    }, 5000)
+  }
+
   render() {
     return (
       <Root componentId={this.props.componentId}>

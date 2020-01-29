@@ -34,65 +34,47 @@ function start() {
 
     Navigation.setRoot({
       root: {
-        bottomTabs: {
-          children: [
-            {
-              stack: {
-                children: [
-                  {
-                    component: {
-                      name: 'Layouts'
-                    }
+        sideMenu: {
+          center: {
+            stack: {
+              children: [
+                {
+                  bottomTabs: {
+                    children: [
+                      {
+                        stack: {
+                          children: [
+                            {
+                              component: {
+                                name: 'Layouts'
+                              }
+                            }
+                          ],
+                          options: {
+                            bottomTab: {
+                              text: 'Layouts',
+                              icon: require('../img/layouts.png'),
+                              selectedIcon: require('../img/layouts_selected.png'),
+                              testID: testIDs.LAYOUTS_TAB
+                            }
+                          }
+                        }
+                      },
+                    ]
                   }
-                ],
-                options: {
-                  bottomTab: {
-                    text: 'Layouts',
-                    icon: require('../img/layouts.png'),
-                    selectedIcon: require('../img/layouts_selected.png'),
-                    testID: testIDs.LAYOUTS_TAB
-                  }
-                }
-              }
-            },
-            {
-              stack: {
-                children: [
-                  {
-                    component: {
-                      name: 'Options'
-                    }
-                  }
-                ],
-                options: {
-                  topBar: {
-                    title: {
-                      text: 'Default Title'
-                    }
+                },
+                // The second child can come from a deeplink or something like that. This component will change the
+                // application root.
+                {
+                  component: {
+                    name: 'Layouts',
                   },
-                  bottomTab: {
-                    text: 'Options',
-                    icon: require('../img/options.png'),
-                    selectedIcon: require('../img/options_selected.png'),
-                    testID: testIDs.OPTIONS_TAB
-                  }
-                }
-              }
+                },
+              ],
             },
-            {
-              stack: {
-                children: [
-                  {
-                    component: {
-                      name: 'Navigation'
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      }
+          },
+        },
+      },
     });
   });
 }
